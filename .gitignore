@@ -1,0 +1,6 @@
+*.xlsx
+venv
+
+.idea
+*.iml
+*.ipr
