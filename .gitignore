@@ -1,5 +1,6 @@
 *.xlsx
 venv/
+.vscode/
 
 .idea/
 *.iml
