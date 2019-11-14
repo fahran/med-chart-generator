@@ -1,6 +1,7 @@
 *.xlsx
-venv
+venv/
 
-.idea
+.idea/
 *.iml
 *.ipr
+*.xlsx
