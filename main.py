@@ -41,11 +41,11 @@ def main():
     __produce_spreadsheet(medications)
 
 def __static_data():
-    one = Medication("Malteasers", timedelta(hours=3, minutes=45), datetime(2019, 11, 3, 14, 15), 1.5)
-    two = Medication("Candy Canes", interval=timedelta(hours=6), start_time=datetime(2019, 11, 3, 7))
-    three = Medication("Plums", interval=timedelta(hours=6), start_time=datetime(2019, 11, 3, 9))
-    four = Medication("Fudge", interval=timedelta(hours=24), start_time=datetime(2019, 11, 3, 8), dose=1)
-    five = Medication("Revels", interval=timedelta(hours=24), start_time=datetime(2019, 11, 3, 18), dose=1)
+    one = Medication("Malteasers", timedelta(hours=3, minutes=15), start_time=datetime.now() + timedelta(hours=14, minutes=15), dose=1.5)
+    two = Medication("Candy Canes", interval=timedelta(hours=6), start_time=datetime.now() + timedelta(hours=7))
+    three = Medication("Plums", interval=timedelta(hours=6), start_time=datetime.now() + timedelta(hours=9))
+    four = Medication("Fudge", interval=timedelta(hours=24), start_time=datetime.now() + timedelta(hours=8), dose=1)
+    five = Medication("Revels", interval=timedelta(hours=24), start_time=datetime.now() + timedelta(hours=18), dose=1)
     return [one, two, three, four, five]
 
 def __ask_questions():
@@ -79,7 +79,7 @@ def __ask_questions():
 def __produce_spreadsheet(medications):
     workbook = xlsxwriter.Workbook('medications.xlsx')
     worksheet = workbook.add_worksheet()
-    normal_cell = workbook.add_format({'align': 'center', 'valign': 'center', 'border': 1, 'font_size': 8})
+    normal_cell = workbook.add_format({'align': 'center', 'valign': 'center', 'border': 1, 'font_size': 8, 'text_wrap': True})
     no_border = workbook.add_format({'align': 'center', 'border': 0})
     header_cell = workbook.add_format({'bold': True, 'align': 'center', 'valign': 'center', 'border': 1, 'font_size': 7})
     worksheet.set_column('A:A', 11, header_cell)
